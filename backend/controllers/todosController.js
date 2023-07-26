@@ -11,7 +11,7 @@ const standardResponse = (sts,msg,err,dta) => {
 
 module.exports.getTodo = async (req,res) => {
     const todo = await TodoModel.find().sort({time:-1});
-    res.send(todo);
+    res.send(standardResponse(true,"Fetched Successfully",null,todo));
 }
 
 module.exports.saveTodo = async (req,res) => {

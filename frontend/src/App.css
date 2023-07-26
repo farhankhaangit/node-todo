@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+.popup {
+  width: 100vw;
+  height: 100vh;
+  background-color: #0000007a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.popup>div{
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  max-height: 80%;
+  overflow: auto;
+}
+.wb-all{
+  word-break: break-all;
+}
