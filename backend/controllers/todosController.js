@@ -16,7 +16,7 @@ module.exports.getTodo = async (req,res) => {
 
 module.exports.saveTodo = async (req,res) => {
     const {text,title} = req.body
-    if(text==null || title==null){
+    if(text==null || text=="" || title==null || title==""){
         return res.status(200).send(standardResponse(false,'text and title are required','ValidationFailed',null));
     }
     const currentDate = new Date();
@@ -34,6 +34,9 @@ module.exports.updateTodo = async (req,res) => {
     const {id,text,title} = req.body;
     if(id==null){
         return res.status(200).send(standardResponse(false,'id is required','ValidationFailed',null));
+    }
+    if(text=="" || title==""){
+        return res.status(200).send(standardResponse(false,'title or detail cannot be empty','ValidationFailed',null));
     }
     const time = new Date();
     await TodoModel.findByIdAndUpdate(id,{text,title,time},{ new: true }).then((data) => {
